@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eid Mubarak 🌸 Lebaran Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pb:#FFE4EE;--pl:#FFF0F5;--pm:#FFB3CC;--pd:#FF85A8;--pa:#FF6699;
+  --rose:#E8517A;--gold:#FFD700;--td:#7A2A45;--tm:#C0527A
+}
+body{font-family:'Nunito',sans-serif;background:var(--pb);overflow:hidden;width:100vw;height:100vh;position:relative}
+
+/* BG */
+.bg{position:fixed;inset:0;background:radial-gradient(ellipse at 30% 20%,#FFD6E7 0%,#FFE8F0 40%,#FFF0F8 100%);z-index:-2}
+
+/* SCREENS */
+.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity .8s,transform .8s;z-index:2}
+.screen.hidden{opacity:0;pointer-events:none;transform:scale(.95)}
+
+/* FLOWERS */
+.fl-layer{position:fixed;inset:0;pointer-events:none;z-index:0}
+.flower{position:absolute;animation:floatF var(--d) ease-in-out infinite;pointer-events:none}
+@keyframes floatF{0%,100%{transform:translateY(0) rotate(0deg) scale(1)}33%{transform:translateY(-15px) rotate(10deg) scale(1.06)}66%{transform:translateY(8px) rotate(-8deg) scale(.95)}}
+
+/* HANGING */
+.hang-layer{position:fixed;top:0;left:0;right:0;height:80px;pointer-events:none;z-index:1}
+.hang-item{position:absolute;top:0;display:flex;flex-direction:column;align-items:center;transform-origin:top center;animation:swing var(--sd) ease-in-out infinite}
+.hang-str{width:1px;background:linear-gradient(to bottom,#FFB3CC88,transparent)}
+.hang-deco{font-size:1.8rem;filter:drop-shadow(0 2px 4px rgba(255,100,150,.3))}
+@keyframes swing{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+
+/* CARD SHARED */
+.card-wrap{
+  background:linear-gradient(145deg,#FFF5F9 0%,#FFE4EE 100%);
+  border-radius:28px;
+  width:min(420px,92vw);
+  box-shadow:0 20px 60px rgba(255,100,150,.22),0 0 0 2px rgba(255,180,210,.3),inset 0 0 0 1px rgba(255,255,255,.8);
+  position:relative;z-index:2;text-align:center;
+  border:2px solid rgba(255,180,210,.4)
+}
+
+/* SLIDE 1 */
+#slide1 .card-wrap{padding:38px 32px 36px}
+.seal{width:76px;height:76px;background:linear-gradient(135deg,#FF85A8,#FF4D88);border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;box-shadow:0 8px 24px rgba(255,77,136,.4);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 8px 24px rgba(255,77,136,.4)}50%{transform:scale(1.06);box-shadow:0 12px 32px rgba(255,77,136,.6)}}
+.s1-title{font-family:'Pacifico',cursive;font-size:clamp(1.3rem,4.5vw,1.8rem);color:var(--rose);text-shadow:1px 1px 0 rgba(255,255,255,.8);margin-bottom:6px;line-height:1.35}
+.s1-sub{font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--tm);margin-bottom:26px}
+.inp-wrap{margin-bottom:18px}
+.inp-wrap input{width:100%;padding:13px 20px;border-radius:50px;border:2px solid var(--pm);background:white;font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;color:var(--td);text-align:center;outline:none;transition:border-color .3s,box-shadow .3s}
+.inp-wrap input:focus{border-color:var(--pa);box-shadow:0 0 0 4px rgba(255,102,153,.15)}
+.inp-wrap input::placeholder{color:var(--pd);opacity:.7}
+.btn-open{background:linear-gradient(135deg,#FF85A8,#FF3D7A);color:white;border:none;padding:14px 38px;border-radius:50px;font-family:'Fredoka One',cursive;font-size:1.2rem;cursor:pointer;box-shadow:0 6px 20px rgba(255,61,122,.4);transition:transform .2s,box-shadow .2s;letter-spacing:.5px}
+.btn-open:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,61,122,.55)}
+.btn-open:active{transform:translateY(1px)}
+
+/* SLIDE 2 */
+#slide2 .card-wrap{padding:32px 28px 26px;max-height:88vh;overflow-y:auto}
+#slide2 .card-wrap::-webkit-scrollbar{width:4px}
+#slide2 .card-wrap::-webkit-scrollbar-thumb{background:var(--pm);border-radius:4px}
+.l-hdr{font-family:'Pacifico',cursive;font-size:clamp(1.2rem,4vw,1.55rem);color:var(--rose);line-height:1.35;margin-bottom:4px}
+.l-greet{font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--tm);margin-bottom:14px}
+.l-div{height:2px;background:linear-gradient(to right,transparent,var(--pm),transparent);margin:10px 0;border-radius:2px}
+.l-body{font-family:'Baloo 2',cursive;font-size:1rem;color:var(--td);line-height:1.9;margin-bottom:12px}
+.l-body p{margin-bottom:4px}
+.l-big{font-size:1.15rem;font-weight:800;color:var(--rose)}
+.l-from{font-family:'Pacifico',cursive;font-size:1rem;color:var(--rose);margin-top:6px}
+.btn-game{background:linear-gradient(135deg,#FFB3CC,#FF85A8);color:white;border:none;padding:12px 28px;border-radius:50px;font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;box-shadow:0 6px 18px rgba(255,133,168,.4);transition:transform .2s,box-shadow .2s;margin-top:16px}
+.btn-game:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,133,168,.55)}
+
+/* GAME */
+#gameScreen{position:fixed;inset:0;background:linear-gradient(160deg,#FFD6E7 0%,#FFE8F0 100%);z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:18px}
+#gameScreen.hidden{display:none}
+.g-hdr{text-align:center;margin-bottom:8px}
+.g-title{font-family:'Pacifico',cursive;font-size:1.55rem;color:var(--rose);text-shadow:1px 1px 0 white}
+.g-info{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--tm);margin-top:2px}
+#gameCanvas{border-radius:20px;border:3px solid var(--pm);box-shadow:0 10px 30px rgba(255,100,150,.2);cursor:pointer;touch-action:none;display:block}
+.btn-back{margin-top:12px;background:white;color:var(--rose);border:2px solid var(--pm);padding:10px 24px;border-radius:50px;font-family:'Fredoka One',cursive;font-size:1rem;cursor:pointer;transition:transform .2s}
+.btn-back:hover{transform:translateY(-2px)}
+
+/* CONFETTI */
+#confettiCanvas{position:fixed;inset:0;pointer-events:none;z-index:50}
+
+/* WATERMARK */
+.wm{position:fixed;bottom:12px;right:14px;font-family:'Fredoka One',cursive;font-size:.82rem;color:rgba(180,80,120,.75);font-weight:900;z-index:999;letter-spacing:.4px;text-shadow:0 1px 2px rgba(255,255,255,.9);pointer-events:none;user-select:none}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="fl-layer" id="flLayer"></div>
+<div class="hang-layer" id="hangLayer"></div>
+<canvas id="confettiCanvas"></canvas>
+
+<!-- SLIDE 1 -->
+<div class="screen" id="slide1">
+  <div class="card-wrap">
+    <div class="seal">💌</div>
+    <h1 class="s1-title">Selamat Hari Raya<br>Idul Fitri 🌙</h1>
+    <p class="s1-sub">Ada surat spesial buat kamu~ 🌸</p>
+    <div class="inp-wrap">
+      <input type="text" id="nameInput" placeholder="Nama kamu siapa? 🌷" maxlength="30">
+    </div>
+    <button class="btn-open" onclick="openCard()">Buka Amplop 💌</button>
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="screen hidden" id="slide2">
+  <div class="card-wrap">
+    <div class="l-hdr">🌸 Eid Mubarak 🌸</div>
+    <div class="l-greet" id="recipName"></div>
+    <div class="l-div"></div>
+    <div class="l-body">
+      <p class="l-big">Selamat Hari Raya Idul Fitri 🌙</p>
+      <p>Taqabbalallahu Minna wa Minkum ✨</p>
+      <p>Minal Aidzin wal Faidzin</p>
+      <div class="l-div"></div>
+      <p>Ada kartu spesial buat kamu 💌</p>
+      <div class="l-div"></div>
+      <p>Mohon maaf lahir &amp; batin 🤍</p>
+    </div>
+    <div class="l-from">~ Fafa &amp; keluarga 🌸</div>
+    <button class="btn-game" onclick="showGame()">🌺 Main Bunga Yuk! 🌺</button>
+  </div>
+</div>
+
+<!-- GAME -->
+<div id="gameScreen" class="hidden">
+  <div class="g-hdr">
+    <div class="g-title">🌸 Tangkap Bunga! 🌸</div>
+    <div class="g-info">Skor: <span id="scoreVal">0</span> 🌷 &nbsp;|&nbsp; Waktu: <span id="timerVal">30</span>s ⏰</div>
+  </div>
+  <canvas id="gameCanvas"></canvas>
+  <button class="btn-back" onclick="closeGame()">← Kembali ke Kartu</button>
+</div>
+
+<div class="wm">Space | by.fuya</div>
+
+<script>
+// ===== FLOWERS =====
+const EMOJIS = ['🌸','🌺','🌷','🌼','💮','🏵️','🌹','🌻','🌼','💐'];
+const flLayer = document.getElementById('flLayer');
+function mkFlowers(){
+  for(let i=0;i<24;i++){
+    const el=document.createElement('div');
+    el.className='flower';
+    const sz=(1+Math.random()*1.3).toFixed(1);
+    const dur=(3.2+Math.random()*4.5).toFixed(1);
+    const delay=(Math.random()*5).toFixed(1);
+    el.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;font-size:${sz}rem;--d:${dur}s;animation-delay:-${delay}s;opacity:${(.35+Math.random()*.55).toFixed(2)}`;
+    el.textContent=EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+    flLayer.appendChild(el);
+  }
+}
+
+// ===== KETUPAT SVG =====
+function ketupatSVG(size=30){
+  const s=document.createElement('div');
+  s.innerHTML=`<svg width="${size}" height="${size}" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 2L28 15L15 28L2 15Z" fill="#FFB3CC" stroke="#FF85A8" stroke-width="1.5"/>
+    <path d="M15 7L23 15L15 23L7 15Z" fill="#FFD6E7" stroke="#FF85A8" stroke-width="1"/>
+    <line x1="15" y1="2" x2="15" y2="28" stroke="#FF85A8" stroke-width=".8" opacity=".5"/>
+    <line x1="2" y1="15" x2="28" y2="15" stroke="#FF85A8" stroke-width=".8" opacity=".5"/>
+    <circle cx="15" cy="15" r="2" fill="#FF85A8" opacity=".6"/>
+  </svg>`;
+  return s;
+}
+
+// ===== HANGINGS =====
+const hangLayer=document.getElementById('hangLayer');
+const HANG=[
+  {e:'🌙',x:5,sd:3.5,h:38},{e:'⭐',x:14,sd:4.2,h:28},{e:'🌸',x:23,sd:3.1,h:42},
+  {e:'✨',x:35,sd:3.8,h:32},{e:'K',x:46,sd:4.0,h:50},{e:'🌙',x:55,sd:3.3,h:36},
+  {e:'K',x:65,sd:4.5,h:28},{e:'🌷',x:76,sd:3.6,h:44},{e:'⭐',x:85,sd:4.1,h:30},{e:'🌸',x:94,sd:3.2,h:38}
+];
+function mkHangings(){
+  HANG.forEach((item,i)=>{
+    const w=document.createElement('div');
+    w.className='hang-item';
+    w.style.cssText=`left:${item.x}%;--sd:${item.sd}s;animation-delay:-${i*0.55}s`;
+    const str=document.createElement('div');
+    str.className='hang-str';
+    str.style.height=item.h+'px';
+    w.appendChild(str);
+    if(item.e==='K'){
+      const k=ketupatSVG(28);
+      k.style.lineHeight='0';
+      w.appendChild(k);
+    } else {
+      const d=document.createElement('div');
+      d.className='hang-deco';
+      d.textContent=item.e;
+      w.appendChild(d);
+    }
+    hangLayer.appendChild(w);
+  });
+}
+
+// ===== CONFETTI =====
+const confC=document.getElementById('confettiCanvas');
+const confX=confC.getContext('2d');
+let parts=[];
+function resizeC(){confC.width=window.innerWidth;confC.height=window.innerHeight}
+window.addEventListener('resize',resizeC);resizeC();
+
+const CONF_COLORS=['#FF85A8','#FFB3CC','#FF6699','#FFD700','#FFFFFF','#FF99CC','#FFC0CB','#FFE4EE','#FFD6E7','#FF4D88','#FFFACD'];
+class Particle{
+  constructor(init=false){this.reset(init)}
+  reset(init=false){
+    this.x=Math.random()*confC.width;
+    this.y=init?Math.random()*confC.height:-20-Math.random()*80;
+    this.type=['ribbon','circle','star','square'][Math.floor(Math.random()*4)];
+    this.color=CONF_COLORS[Math.floor(Math.random()*CONF_COLORS.length)];
+    this.size=this.type==='ribbon'?(3+Math.random()*3):(4+Math.random()*7);
+    this.rLen=this.type==='ribbon'?14+Math.random()*18:0;
+    this.vx=(Math.random()-.5)*2.5;
+    this.vy=1.2+Math.random()*2.8;
+    this.rot=Math.random()*Math.PI*2;
+    this.rSpd=(Math.random()-.5)*.14;
+    this.op=.75+Math.random()*.25;
+    this.glitter=Math.random()<.35;
+    this.wobble=Math.random()*Math.PI*2;
+  }
+  update(){
+    this.x+=this.vx+Math.sin(this.y*.025+this.wobble)*.6;
+    this.y+=this.vy;
+    this.rot+=this.rSpd;
+    if(this.glitter)this.op=.3+Math.abs(Math.sin(Date.now()*.009+this.x*.05))*.7;
+    if(this.y>confC.height+30)this.reset(false);
+  }
+  draw(){
+    confX.save();
+    confX.globalAlpha=this.op;
+    confX.fillStyle=this.color;
+    confX.strokeStyle=this.color;
+    confX.translate(this.x,this.y);
+    confX.rotate(this.rot);
+    if(this.type==='ribbon'){
+      confX.lineWidth=this.size;confX.lineCap='round';
+      confX.beginPath();
+      confX.moveTo(-this.rLen/2,0);
+      confX.bezierCurveTo(-this.rLen/4,-this.size*2,this.rLen/4,this.size*2,this.rLen/2,0);
+      confX.stroke();
+    } else if(this.type==='circle'){
+      confX.beginPath();confX.arc(0,0,this.size/2,0,Math.PI*2);confX.fill();
+    } else if(this.type==='square'){
+      const h=this.size/2;
+      confX.fillRect(-h,-h,this.size,this.size);
+    } else {
+      // star
+      confX.beginPath();
+      for(let k=0;k<10;k++){
+        const a=(k*Math.PI/5)-Math.PI/2;
+        const r=k%2===0?this.size/2:this.size/4;
+        k===0?confX.moveTo(Math.cos(a)*r,Math.sin(a)*r):confX.lineTo(Math.cos(a)*r,Math.sin(a)*r);
+      }
+      confX.closePath();confX.fill();
+    }
+    confX.restore();
+  }
+}
+
+let confActive=false;let confTimer=null;
+function startConfetti(){
+  confActive=true;parts=[];
+  for(let i=0;i<220;i++){const p=new Particle(true);parts.push(p);}
+  animConf();
+  if(confTimer)clearTimeout(confTimer);
+  confTimer=setTimeout(()=>{confActive=false;},14000);
+}
+function animConf(){
+  confX.clearRect(0,0,confC.width,confC.height);
+  if(confActive||parts.some(p=>p.y<confC.height)){
+    parts.forEach(p=>{p.update();p.draw();});
+    requestAnimationFrame(animConf);
+  } else {
+    confX.clearRect(0,0,confC.width,confC.height);
+  }
+}
+
+// ===== OPEN CARD =====
+function openCard(){
+  const name=document.getElementById('nameInput').value.trim();
+  document.getElementById('recipName').textContent=name?`Untuk: ${name} 🌸`:`Untuk kamu 🌸`;
+  document.getElementById('slide1').classList.add('hidden');
+  document.getElementById('slide2').classList.remove('hidden');
+  setTimeout(startConfetti,200);
+}
+document.getElementById('nameInput').addEventListener('keydown',e=>{if(e.key==='Enter')openCard();});
+
+// ===== GAME =====
+const gCanvas=document.getElementById('gameCanvas');
+const gCtx=gCanvas.getContext('2d');
+const G_FLOWERS=['🌸','🌺','🌷','🌼','💐','🌹','🌻','🏵️','💮','🌼'];
+let gScore=0,gTime=30,gRunning=false,gAnimId=null,gTimer=null;
+let gFlowers=[];let lastSpawn=0;
+
+function showGame(){
+  document.getElementById('gameScreen').classList.remove('hidden');
+  document.getElementById('slide2').classList.add('hidden');
+  const sz=Math.min(window.innerWidth-32,380);
+  gCanvas.width=sz;
+  gCanvas.height=Math.min(window.innerHeight-160,500);
+  gScore=0;gTime=30;gFlowers=[];
+  document.getElementById('scoreVal').textContent=0;
+  document.getElementById('timerVal').textContent=30;
+  gRunning=true;lastSpawn=0;
+  if(gTimer)clearInterval(gTimer);
+  gTimer=setInterval(()=>{
+    gTime--;
+    document.getElementById('timerVal').textContent=gTime;
+    if(gTime<=0){clearInterval(gTimer);gRunning=false;showGameOver();}
+  },1000);
+  if(gAnimId)cancelAnimationFrame(gAnimId);
+  gameLoop(0);
+}
+
+function spawnFlower(ts){
+  const spawnRate=Math.max(400,850-(30-gTime)*18);
+  if(ts-lastSpawn>spawnRate){
+    gFlowers.push({
+      x:22+Math.random()*(gCanvas.width-44),
+      y:-30,
+      emoji:G_FLOWERS[Math.floor(Math.random()*G_FLOWERS.length)],
+      speed:1.4+Math.random()*2.2+(30-gTime)*.04,
+      size:28+Math.floor(Math.random()*18),
+      clicked:false,pop:0,wobble:Math.random()*Math.PI*2
+    });
+    lastSpawn=ts;
+  }
+}
+
+function gameLoop(ts){
+  if(!gRunning)return;
+  gCtx.clearRect(0,0,gCanvas.width,gCanvas.height);
+  // bg
+  const grad=gCtx.createLinearGradient(0,0,0,gCanvas.height);
+  grad.addColorStop(0,'#FFE4EE');grad.addColorStop(1,'#FFF5F9');
+  gCtx.fillStyle=grad;gCtx.fillRect(0,0,gCanvas.width,gCanvas.height);
+  // dots
+  gCtx.fillStyle='rgba(255,180,210,.15)';
+  for(let r=0;r<gCanvas.height;r+=30)for(let c=0;c<gCanvas.width;c+=30){gCtx.beginPath();gCtx.arc(c,r,2,0,Math.PI*2);gCtx.fill();}
+
+  spawnFlower(ts);
+  for(let i=gFlowers.length-1;i>=0;i--){
+    const f=gFlowers[i];
+    if(f.clicked){
+      f.pop+=.18;
+      if(f.pop>1){gFlowers.splice(i,1);continue;}
+      gCtx.save();
+      gCtx.globalAlpha=1-f.pop;
+      gCtx.font=`${f.size*(1+f.pop*.5)}px serif`;
+      gCtx.textAlign='center';gCtx.textBaseline='middle';
+      gCtx.fillText(f.emoji,f.x,f.y-f.pop*20);
+      // sparkle
+      gCtx.globalAlpha=(1-f.pop)*.8;
+      for(let s=0;s<6;s++){
+        const a=s*(Math.PI/3)+f.pop*2;
+        const r=f.pop*f.size*1.2;
+        gCtx.fillStyle=['#FFD700','#FF85A8','#FF99CC'][s%3];
+        gCtx.beginPath();gCtx.arc(f.x+Math.cos(a)*r,f.y+Math.sin(a)*r,3,0,Math.PI*2);gCtx.fill();
+      }
+      gCtx.restore();
+    } else {
+      f.y+=f.speed;
+      f.x+=Math.sin(f.y*.02+f.wobble)*.5;
+      gCtx.save();
+      gCtx.font=`${f.size}px serif`;
+      gCtx.textAlign='center';gCtx.textBaseline='middle';
+      gCtx.fillText(f.emoji,f.x,f.y);
+      gCtx.restore();
+      if(f.y>gCanvas.height+30)gFlowers.splice(i,1);
+    }
+  }
+  gCtx.globalAlpha=1;
+  gAnimId=requestAnimationFrame(gameLoop);
+}
+
+function hitTest(e){
+  if(!gRunning)return;
+  const rect=gCanvas.getBoundingClientRect();
+  const cx=(e.clientX!=null?e.clientX:e.touches[0].clientX)-rect.left;
+  const cy=(e.clientY!=null?e.clientY:e.touches[0].clientY)-rect.top;
+  for(let f of gFlowers){
+    if(f.clicked)continue;
+    if(Math.hypot(cx-f.x,cy-f.y)<f.size*.8){
+      f.clicked=true;gScore++;
+      document.getElementById('scoreVal').textContent=gScore;
+      break;
+    }
+  }
+}
+gCanvas.addEventListener('click',hitTest);
+gCanvas.addEventListener('touchstart',e=>{e.preventDefault();hitTest(e);},{passive:false});
+
+function showGameOver(){
+  gCtx.clearRect(0,0,gCanvas.width,gCanvas.height);
+  const grad=gCtx.createLinearGradient(0,0,0,gCanvas.height);
+  grad.addColorStop(0,'#FFE4EE');grad.addColorStop(1,'#FFF5F9');
+  gCtx.fillStyle=grad;gCtx.fillRect(0,0,gCanvas.width,gCanvas.height);
+  gCtx.textAlign='center';
+  gCtx.fillStyle='#E8517A';
+  gCtx.font=`bold 26px 'Pacifico', cursive`;
+  gCtx.fillText('🎉 Yeay Selesai! 🎉',gCanvas.width/2,gCanvas.height/2-42);
+  gCtx.font=`500 20px 'Fredoka One', cursive`;
+  gCtx.fillText(`Skor kamu: ${gScore} 🌸`,gCanvas.width/2,gCanvas.height/2+8);
+  gCtx.font=`16px 'Nunito', sans-serif`;
+  gCtx.fillStyle='#C0527A';
+  const msg=gScore>=20?'Wah jago banget! 🏆✨':gScore>=12?'Keren! Coba lagi yuk~ 🌺':gScore>=6?'Bagus! Latihan lagi ya! 🌷':'Jangan menyerah! 🌸';
+  gCtx.fillText(msg,gCanvas.width/2,gCanvas.height/2+46);
+}
+
+function closeGame(){
+  gRunning=false;
+  if(gTimer)clearInterval(gTimer);
+  if(gAnimId)cancelAnimationFrame(gAnimId);
+  document.getElementById('gameScreen').classList.add('hidden');
+  document.getElementById('slide2').classList.remove('hidden');
+}
+
+// ===== INIT =====
+mkFlowers();mkHangings();
+</script>
+</body>
+</html>
